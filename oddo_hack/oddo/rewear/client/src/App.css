@@ -1,0 +1,577 @@
+/* rewear/client/src/App.css - Updated styles */
+
+/* Enhanced Navbar Styling */
+.navbar-custom {
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, #1c2331, #263238) !important;
+}
+
+.navbar-custom.scrolled {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  background: rgba(28, 35, 49, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
+.logo-container {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Removed the logo hover rotation effect */
+
+.nav-link-custom {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link-custom::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #4db6ac;
+  transition: width 0.3s ease;
+}
+
+.nav-link-custom:hover::after,
+.nav-link-custom.active::after {
+  width: 100%;
+}
+
+.nav-link-custom:hover,
+.nav-link-custom.active {
+  color: #4db6ac !important;
+}
+
+.nav-link-custom:hover {
+  background-color: rgba(77, 182, 172, 0.1);
+}
+
+/* Login link styling */
+.login-link:hover {
+  color: #4db6ac !important;
+}
+
+/* Button styling */
+.action-btn:hover {
+  background: linear-gradient(135deg, #4db6ac, #26a69a) !important;
+  border-color: #26a69a !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(38, 166, 154, 0.3) !important;
+}
+
+/* Mobile navigation adjustments */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: linear-gradient(to bottom, #1c2331, #263238);
+    border-radius: 0 0 8px 8px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-link-custom {
+    padding: 0.75rem 1rem !important;
+    border-radius: 4px;
+    margin: 0.25rem 0 !important;
+  }
+
+  .nav-link-custom::after {
+    display: none;
+  }
+
+  .nav-link-custom:hover,
+  .nav-link-custom.active {
+    background-color: rgba(77, 182, 172, 0.2);
+  }
+
+  .login-link {
+    display: block;
+    padding: 0.75rem 1rem !important;
+    margin: 0.25rem 0 !important;
+  }
+
+  .action-btn {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+}
+
+.hero-section {
+  background:
+    linear-gradient(135deg, rgba(38, 50, 56, 0.95), rgba(28, 35, 49, 0.98)),
+    url("https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 0;
+  margin-bottom: 3rem;
+  border-radius: 0; /* Removed the border-radius to make it straight */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section p.lead {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Enhanced Buttons */
+.hero-section .btn {
+  padding: 0.6rem 1.8rem;
+  font-weight: 500;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  margin: 0 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4db6ac, #26a69a);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #26a69a, #00897b);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(38, 166, 154, 0.3);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #66bb6a, #43a047);
+  border: none;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(67, 160, 71, 0.3);
+}
+
+/* Featured Items Section */
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+  color: #263238;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, #4db6ac, #26a69a);
+  border-radius: 2px;
+}
+
+.carousel {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  border-radius: 0 0 12px 12px;
+  padding-top: 30px;
+}
+
+/* Categories Section */
+.category-card {
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.category-card .card-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #263238;
+}
+
+/* Item Cards */
+.card {
+  border: none;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card .badge {
+  font-weight: 500;
+  padding: 0.5em 0.8em;
+  margin-right: 5px;
+  border-radius: 6px;
+}
+
+.badge-primary {
+  background-color: #4db6ac;
+}
+
+.badge-secondary {
+  background-color: #78909c;
+}
+
+.badge-warning {
+  background-color: #ffb74d;
+  color: #212121;
+}
+
+.badge-success {
+  background-color: #66bb6a;
+}
+
+/* Pagination styling */
+.pagination {
+  margin-top: 2rem;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #4db6ac;
+  border-color: #4db6ac;
+}
+
+.pagination .page-link {
+  color: #4db6ac;
+}
+
+.pagination .page-link:hover {
+  background-color: rgba(77, 182, 172, 0.1);
+}
+/* Add these to your App.css file */
+
+/* Auth pages styling */
+.auth-hero-section {
+  background:
+    linear-gradient(135deg, rgba(38, 50, 56, 0.95), rgba(28, 35, 49, 0.98)),
+    url("https://images.unsplash.com/photo-1520006403909-838d6b92c22e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.auth-hero-section h1 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.auth-hero-section p.lead {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auth-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.auth-card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Form styling */
+.form-control {
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #4db6ac;
+  box-shadow: 0 0 0 0.25rem rgba(77, 182, 172, 0.25);
+}
+
+.form-label {
+  font-weight: 500;
+  color: #455a64;
+}
+
+/* Auth buttons */
+.auth-btn {
+  border-radius: 30px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #4db6ac, #26a69a);
+  border: none;
+  box-shadow: 0 4px 10px rgba(38, 166, 154, 0.2);
+}
+
+.auth-btn:hover {
+  background: linear-gradient(135deg, #26a69a, #00897b);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(38, 166, 154, 0.3);
+}
+
+/* Social authentication buttons */
+.social-auth-btn {
+  border-radius: 30px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-width: 1px;
+}
+
+.social-auth-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Links in auth forms */
+.auth-link {
+  color: #4db6ac;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.auth-link:hover {
+  color: #00897b;
+  text-decoration: underline;
+}
+/* Add this to your App.css file for the Admin Panel styling */
+
+/* Admin Hero Section */
+.admin-hero-section {
+  background:
+    linear-gradient(135deg, rgba(38, 50, 56, 0.95), rgba(28, 35, 49, 0.98)),
+    url("https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.admin-hero-section h1 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.admin-hero-section p.lead {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Admin Sidebar */
+.admin-sidebar {
+  background: linear-gradient(to bottom, #263238, #37474f);
+  min-height: 100%;
+}
+
+.admin-nav-link:hover {
+  background: rgba(77, 182, 172, 0.1) !important;
+  color: #4db6ac !important;
+}
+
+/* Admin Tables */
+.table th {
+  font-weight: 600;
+  color: #455a64;
+  border-top: none;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.table td {
+  vertical-align: middle;
+  border-color: #f5f5f5;
+}
+
+.table tr:hover {
+  background-color: rgba(77, 182, 172, 0.05);
+}
+
+/* Search & Filter Controls */
+.search-container:focus-within,
+.filter-container:focus-within {
+  box-shadow: 0 0 0 0.25rem rgba(77, 182, 172, 0.25);
+}
+
+/* Pagination for Admin Panel */
+.admin-pagination .page-item.active .page-link {
+  background-color: #4db6ac;
+  border-color: #4db6ac;
+}
+
+.admin-pagination .page-link {
+  color: #4db6ac;
+}
+
+.admin-pagination .page-link:hover {
+  background-color: rgba(77, 182, 172, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .admin-sidebar {
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .admin-nav-link {
+    margin-bottom: 0.5rem;
+  }
+}
+/* Add to your App.css for Dashboard and Add Item pages */
+
+/* Dashboard Hero Section */
+.dashboard-hero-section {
+  background:
+    linear-gradient(135deg, rgba(38, 50, 56, 0.95), rgba(28, 35, 49, 0.98)),
+    url("https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-hero-section h1 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-hero-section p.lead {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Dashboard Navigation */
+.dashboard-sidebar .nav-link:hover {
+  background-color: rgba(77, 182, 172, 0.1);
+  color: #4db6ac !important;
+}
+
+.add-item-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(38, 166, 154, 0.4) !important;
+}
+
+/* Add Item Hero Section */
+.add-item-hero-section {
+  background:
+    linear-gradient(135deg, rgba(38, 50, 56, 0.95), rgba(28, 35, 49, 0.98)),
+    url("https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.add-item-hero-section h1 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.add-item-hero-section p.lead {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Add Item Form */
+.upload-placeholder:hover {
+  border-color: #4db6ac;
+  background-color: rgba(77, 182, 172, 0.05) !important;
+}
+
+/* Form Controls Focus State */
+.form-control:focus,
+.form-select:focus {
+  border-color: #4db6ac;
+  box-shadow: 0 0 0 0.25rem rgba(77, 182, 172, 0.25);
+}
+
+/* Profile Image Upload */
+.profile-preview:hover {
+  border-color: #4db6ac;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 767.98px) {
+  .dashboard-sidebar {
+    margin-bottom: 1.5rem;
+  }
+
+  .user-profile-section {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .profile-image-container {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}

@@ -1,0 +1,69 @@
+version: "3.8"
+
+services:
+  # Frontend React app
+  client:
+    build:
+      context: ../client
+      dockerfile: ../docker/client/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../client:/app
+      - /app/node_modules
+    depends_on:
+      - server
+    networks:
+      - rewear-network
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000/api
+
+  # Backend Python Flask app
+  # Find the server service section and update the command:
+  server:
+    build:
+      context: ../server
+      dockerfile: ../docker/server/Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../server:/app
+      - ../logs:/app/logs
+      - ../uploads:/app/uploads
+    depends_on:
+      - db
+    networks:
+      - rewear-network
+    environment:
+      - FLASK_ENV=development
+      - DATABASE_URL=mysql+pymysql://rewear:rewear_password@db:3306/rewear
+      - JWT_SECRET_KEY=your_jwt_secret_key_here
+      - SECRET_KEY=your_app_secret_key_here
+      - SQLALCHEMY_TRACK_MODIFICATIONS=False
+    # Run initialization script first, then start the app
+    command: sh -c "python init_db.py && python app.py"
+
+  # MySQL Database
+  db:
+    build:
+      context: ../docker/db
+      dockerfile: Dockerfile
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ../database:/docker-entrypoint-initdb.d
+    networks:
+      - rewear-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=rewear
+      - MYSQL_USER=rewear
+      - MYSQL_PASSWORD=rewear_password
+
+networks:
+  rewear-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
